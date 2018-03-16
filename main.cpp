@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	int n,m,c;
-	int i,j,counter=1;
+	int j,counter=1;
 	int usedpower=0,maxofusedpower=0;
 	while(1)
 	{
@@ -15,13 +15,13 @@ int main()
 		int*power=new int [n];
 		int*situation=new int [n];
 		int number;
-		for(i=0;i<n;i++)
+		for(int i=0;i<n;i++)
 			situation[i]=0;
 
-		for(i=0;i<n;i++)
+		for(int i=0;i<n;i++)
 			cin >> power[i];
 
-		for(i=1;i<(m+1);i++)
+		for(int i=1;i<(m+1);i++)
 		{
 			cin >> number;
 			for(j=1;j<(n+1);j++)

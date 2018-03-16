@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	int n,m,c;
-	int j,counter=1;
+	int counter=1;
 	int usedpower=0,maxofusedpower=0;
 	while(1)
 	{
@@ -24,7 +24,7 @@ int main()
 		for(int i=1;i<(m+1);i++)
 		{
 			cin >> number;
-			for(j=1;j<(n+1);j++)
+			for(int j=1;j<(n+1);j++)
 			{
 				if((number==j)&&(situation[j-1]==0))
 				{

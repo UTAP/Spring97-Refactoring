@@ -24,24 +24,20 @@ int main()
 		for(int i=1;i<(m+1);i++)
 		{
 			cin >> deviceIndex;
-			for(int j=1;j<(n+1);j++)
+			int j = deviceIndex;
+			if(deviceStates[j-1]==0)
 			{
-				if((deviceIndex==j)&&(deviceStates[j-1]==0))
-				{
-					deviceStates[j-1]=1;
-					usedpower=usedpower+devicePowers[j-1];
-					if(usedpower>maxofusedpower)
-						maxofusedpower=usedpower;
-					break;
-				}
-				if((deviceIndex==j)&&(deviceStates[j-1]==1))
-				{
-					deviceStates[j-1]=0;
-					usedpower=usedpower-devicePowers[j-1];
-					if(usedpower>maxofusedpower)
-						maxofusedpower=usedpower;
-					break;
-				}
+				deviceStates[j-1]=1;
+				usedpower=usedpower+devicePowers[j-1];
+				if(usedpower>maxofusedpower)
+					maxofusedpower=usedpower;
+			}
+			else if(deviceStates[j-1]==1)
+			{
+				deviceStates[j-1]=0;
+				usedpower=usedpower-devicePowers[j-1];
+				if(usedpower>maxofusedpower)
+					maxofusedpower=usedpower;
 			}
 		}
 		if(usedpower>c)

@@ -19,13 +19,12 @@ int simulateDeviceToggles(int n, int* devicePowers, vector<int> toggleSequence)
 {
 	int maxPowerUsed = 0;
 	int usedPower = 0;
-	int m = toggleSequence.size();
 
 	bool* deviceStates = new bool[n];
 	for(int i = 0; i < n; i++)
 		deviceStates[i] = false;
 
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < toggleSequence.size(); i++)
 	{
 		int deviceIndex = toggleSequence[i];
 		deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];

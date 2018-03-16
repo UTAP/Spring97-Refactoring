@@ -5,7 +5,7 @@ int main()
 {
 	int n,m,c;
 	int counter=1;
-	int usedpower=0,maxofusedpower=0;
+	int maxofusedpower=0;
 	while(1)
 	{
 		cin >> n >> m >> c;
@@ -21,23 +21,23 @@ int main()
 		for(int i=0;i<n;i++)
 			cin >> devicePowers[i];
 
+		int usedPower = 0;
 		for(int i=0;i<m;i++)
 		{
 			cin >> deviceIndex;
 			deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];
 			if(deviceStates[deviceIndex-1])
-				usedpower=usedpower+devicePowers[deviceIndex-1];
+				usedPower=usedPower+devicePowers[deviceIndex-1];
 			else
-				usedpower=usedpower-devicePowers[deviceIndex-1];
-			if(usedpower>maxofusedpower)
-				maxofusedpower=usedpower;
+				usedPower=usedPower-devicePowers[deviceIndex-1];
+			if(usedPower>maxofusedpower)
+				maxofusedpower=usedPower;
 		}
-		if(usedpower>c)
+		if(maxofusedpower>c)
 		{
 			printf("Sequence %d\nFuse was blown.\n\n",counter);
 			counter++;
 			maxofusedpower=0;
-		    usedpower=0;
 			continue;
 		}
 		else
@@ -45,7 +45,6 @@ int main()
 			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",counter,maxofusedpower);
 			counter++;
 			maxofusedpower=0;
-		    usedpower=0;
 			continue;
 		}
 	}

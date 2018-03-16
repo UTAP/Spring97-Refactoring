@@ -3,10 +3,10 @@
 #include<vector>
 using namespace std;
 
-vector<int> readSequence(int m)
+vector<int> readSequence(int length)
 {
 	vector<int> sequence;
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < length; i++)
 	{
 		int element;
 		cin >> element;

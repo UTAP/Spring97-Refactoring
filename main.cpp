@@ -26,11 +26,11 @@ int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
 	for(int i = 0; i < toggleSequence.size(); i++)
 	{
 		int deviceIndex = toggleSequence[i];
-		deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];
-		if(deviceStates[deviceIndex-1])
-			usedPower = usedPower + devicePowers[deviceIndex-1];
+		deviceStates[deviceIndex - 1] = !deviceStates[deviceIndex - 1];
+		if(deviceStates[deviceIndex - 1])
+			usedPower = usedPower + devicePowers[deviceIndex - 1];
 		else
-			usedPower = usedPower - devicePowers[deviceIndex-1];
+			usedPower = usedPower - devicePowers[deviceIndex - 1];
 		if(usedPower > maxPowerUsed)
 			maxPowerUsed = usedPower;
 	}
@@ -53,16 +53,15 @@ void printOutput(int sequenceCount, bool fuseWasBlown, int maxPowerUsed)
 
 int main()
 {
-	int n,m,c;
+	int n, m, c;
 	int sequenceCount = 1;
-	while(1)
+	while(true)
 	{
 		cin >> n >> m >> c;
-		if((n==0)&&(m==0)&&(c==0))
+		if((n == 0) && (m == 0) && (c == 0))
 			return 0;
 
 		vector<int> devicePowers = readSequence(n);
-
 		vector<int> toggleSequence = readSequence(m);
 
 		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);

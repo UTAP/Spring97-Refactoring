@@ -15,6 +15,31 @@ vector<int> readToggleSequence(int m)
 	return toggleSequence;
 }
 
+int simulateDeviceToggles(int n, int* devicePowers, vector<int> toggleSequence)
+{
+	int maxPowerUsed = 0;
+	int usedPower = 0;
+	int m = toggleSequence.size();
+
+	bool* deviceStates = new bool[n];
+	for(int i = 0; i < n; i++)
+		deviceStates[i] = false;
+
+	for(int i = 0; i < m; i++)
+	{
+		int deviceIndex = toggleSequence[i];
+		deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];
+		if(deviceStates[deviceIndex-1])
+			usedPower = usedPower + devicePowers[deviceIndex-1];
+		else
+			usedPower = usedPower - devicePowers[deviceIndex-1];
+		if(usedPower > maxPowerUsed)
+			maxPowerUsed = usedPower;
+	}
+
+	return maxPowerUsed;
+}
+
 int main()
 {
 	int n,m,c;
@@ -31,24 +56,8 @@ int main()
 
 		vector<int> toggleSequence = readToggleSequence(m);
 
-		int maxPowerUsed = 0;
-		int usedPower = 0;
+		int maxPowerUsed = simulateDeviceToggles(n, devicePowers, toggleSequence);
 
-		bool* deviceStates=new bool [n];
-		for(int i=0;i<n;i++)
-			deviceStates[i]=false;
-
-		for(int i=0;i<m;i++)
-		{
-			int deviceIndex = toggleSequence[i];
-			deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];
-			if(deviceStates[deviceIndex-1])
-				usedPower=usedPower+devicePowers[deviceIndex-1];
-			else
-				usedPower=usedPower-devicePowers[deviceIndex-1];
-			if(usedPower>maxPowerUsed)
-				maxPowerUsed=usedPower;
-		}
 		if(maxPowerUsed>c)
 		{
 			printf("Sequence %d\nFuse was blown.\n\n",counter);

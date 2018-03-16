@@ -26,13 +26,12 @@ int main()
 			return 0;
 
 		int*devicePowers=new int [n];
-		bool* deviceStates=new bool [n];
-		for(int i=0;i<n;i++)
-			deviceStates[i]=false;
-
 		for(int i=0;i<n;i++)
 			cin >> devicePowers[i];
 
+		bool* deviceStates=new bool [n];
+		for(int i=0;i<n;i++)
+			deviceStates[i]=false;
 
 		vector<int> toggleSequence = readToggleSequence(m);
 

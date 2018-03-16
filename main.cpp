@@ -42,7 +42,7 @@ int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
 int main()
 {
 	int n,m,c;
-	int counter=1;
+	int counter = 1;
 	while(1)
 	{
 		cin >> n >> m >> c;
@@ -55,15 +55,11 @@ int main()
 
 		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);
 
-		if(maxPowerUsed>c)
-		{
+		if(maxPowerUsed > c)
 			printf("Sequence %d\nFuse was blown.\n\n",counter);
-			counter++;
-		}
 		else
-		{
 			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",counter,maxPowerUsed);
-			counter++;
-		}
+			
+		counter++;
 	}
 }

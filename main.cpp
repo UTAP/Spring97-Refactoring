@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdio>
+#include<vector>
 using namespace std;
 int main()
 {
@@ -14,7 +15,6 @@ int main()
 
 		int*devicePowers=new int [n];
 		bool* deviceStates=new bool [n];
-		int deviceIndex;
 		for(int i=0;i<n;i++)
 			deviceStates[i]=false;
 
@@ -22,9 +22,18 @@ int main()
 			cin >> devicePowers[i];
 
 		int usedPower = 0;
+
+		vector<int> toggleSequence;
 		for(int i=0;i<m;i++)
 		{
+			int deviceIndex;
 			cin >> deviceIndex;
+			toggleSequence.push_back(deviceIndex);
+
+		}
+		for(int i=0;i<m;i++)
+		{
+			int deviceIndex = toggleSequence[i];
 			deviceStates[deviceIndex-1] = !deviceStates[deviceIndex-1];
 			if(deviceStates[deviceIndex-1])
 				usedPower=usedPower+devicePowers[deviceIndex-1];

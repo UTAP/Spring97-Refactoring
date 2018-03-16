@@ -33,11 +33,12 @@ int main()
 		for(int i=0;i<n;i++)
 			cin >> devicePowers[i];
 
-		int usedPower = 0;
 
 		vector<int> toggleSequence = readToggleSequence(m);
 
-		int maxPowerUsed=0;
+		int maxPowerUsed = 0;
+		int usedPower = 0;
+
 		for(int i=0;i<m;i++)
 		{
 			int deviceIndex = toggleSequence[i];

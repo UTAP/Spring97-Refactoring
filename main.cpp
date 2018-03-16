@@ -39,6 +39,14 @@ int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
 	return maxPowerUsed;
 }
 
+void printOutput(int sequenceCount, bool fuseWasBlown, int maxPowerUsed)
+{
+	if(fuseWasBlown)
+		printf("Sequence %d\nFuse was blown.\n\n",sequenceCount);
+	else
+		printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",sequenceCount,maxPowerUsed);
+}
+
 int main()
 {
 	int n,m,c;
@@ -55,10 +63,7 @@ int main()
 
 		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);
 
-		if(maxPowerUsed > c)
-			printf("Sequence %d\nFuse was blown.\n\n",sequenceCount);
-		else
-			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",sequenceCount,maxPowerUsed);
+		printOutput(sequenceCount, maxPowerUsed > c, maxPowerUsed);
 
 		sequenceCount++;
 	}

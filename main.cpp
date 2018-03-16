@@ -14,7 +14,7 @@ int main()
 
 		int*devicePowers=new int [n];
 		int* deviceStates=new int [n];
-		int number;
+		int deviceIndex;
 		for(int i=0;i<n;i++)
 			deviceStates[i]=0;
 
@@ -23,10 +23,10 @@ int main()
 
 		for(int i=1;i<(m+1);i++)
 		{
-			cin >> number;
+			cin >> deviceIndex;
 			for(int j=1;j<(n+1);j++)
 			{
-				if((number==j)&&(deviceStates[j-1]==0))
+				if((deviceIndex==j)&&(deviceStates[j-1]==0))
 				{
 					deviceStates[j-1]=1;
 					usedpower=usedpower+devicePowers[j-1];
@@ -34,7 +34,7 @@ int main()
 						maxofusedpower=usedpower;
 					break;
 				}
-				if((number==j)&&(deviceStates[j-1]==1))
+				if((deviceIndex==j)&&(deviceStates[j-1]==1))
 				{
 					deviceStates[j-1]=0;
 					usedpower=usedpower-devicePowers[j-1];

@@ -66,8 +66,6 @@ int main()
 
 		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);
 
-		printOutput(sequenceCount, maxPowerUsed > c, maxPowerUsed);
-
-		sequenceCount++;
+		printOutput(sequenceCount++, maxPowerUsed > c, maxPowerUsed);
 	}
 }

@@ -21,7 +21,7 @@ int main()
 		for(int i=0;i<n;i++)
 			cin >> devicePowers[i];
 
-		for(int i=1;i<(m+1);i++)
+		for(int i=0;i<m;i++)
 		{
 			cin >> deviceIndex;
 			if(deviceStates[deviceIndex-1]==0)

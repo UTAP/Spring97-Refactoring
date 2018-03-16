@@ -38,14 +38,12 @@ int main()
 			printf("Sequence %d\nFuse was blown.\n\n",counter);
 			counter++;
 			maxofusedpower=0;
-			continue;
 		}
 		else
 		{
 			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",counter,maxofusedpower);
 			counter++;
 			maxofusedpower=0;
-			continue;
 		}
 	}
 }

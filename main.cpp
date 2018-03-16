@@ -13,7 +13,7 @@ int main()
 			return 0;
 
 		int*devicePowers=new int [n];
-		int* deviceStates=new int [n];
+		bool* deviceStates=new bool [n];
 		int deviceIndex;
 		for(int i=0;i<n;i++)
 			deviceStates[i]=0;
@@ -24,15 +24,15 @@ int main()
 		for(int i=0;i<m;i++)
 		{
 			cin >> deviceIndex;
-			if(deviceStates[deviceIndex-1]==0)
+			if(!deviceStates[deviceIndex-1])
 			{
-				deviceStates[deviceIndex-1]=1;
+				deviceStates[deviceIndex-1] = true;
 				usedpower=usedpower+devicePowers[deviceIndex-1];
 
 			}
-			else if(deviceStates[deviceIndex-1]==1)
+			else if(deviceStates[deviceIndex-1])
 			{
-				deviceStates[deviceIndex-1]=0;
+				deviceStates[deviceIndex-1] = false;
 				usedpower=usedpower-devicePowers[deviceIndex-1];
 			}
 			if(usedpower>maxofusedpower)

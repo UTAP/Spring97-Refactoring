@@ -37,7 +37,7 @@ int main()
 
 		vector<int> toggleSequence = readToggleSequence(m);
 
-		int maxofusedpower=0;
+		int maxPowerUsed=0;
 		for(int i=0;i<m;i++)
 		{
 			int deviceIndex = toggleSequence[i];
@@ -46,17 +46,17 @@ int main()
 				usedPower=usedPower+devicePowers[deviceIndex-1];
 			else
 				usedPower=usedPower-devicePowers[deviceIndex-1];
-			if(usedPower>maxofusedpower)
-				maxofusedpower=usedPower;
+			if(usedPower>maxPowerUsed)
+				maxPowerUsed=usedPower;
 		}
-		if(maxofusedpower>c)
+		if(maxPowerUsed>c)
 		{
 			printf("Sequence %d\nFuse was blown.\n\n",counter);
 			counter++;
 		}
 		else
 		{
-			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",counter,maxofusedpower);
+			printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",counter,maxPowerUsed);
 			counter++;
 		}
 	}

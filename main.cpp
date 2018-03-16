@@ -15,10 +15,11 @@ vector<int> readToggleSequence(int m)
 	return toggleSequence;
 }
 
-int simulateDeviceToggles(int n, int* devicePowers, vector<int> toggleSequence)
+int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
 {
 	int maxPowerUsed = 0;
 	int usedPower = 0;
+	int n = devicePowers.size();
 
 	bool* deviceStates = new bool[n];
 	for(int i = 0; i < n; i++)
@@ -49,13 +50,17 @@ int main()
 		if((n==0)&&(m==0)&&(c==0))
 			return 0;
 
-		int*devicePowers=new int [n];
-		for(int i=0;i<n;i++)
-			cin >> devicePowers[i];
+		vector<int> devicePowers;
+		for(int i = 0; i < n; i++)
+		{
+			int power;
+			cin >> power;
+			devicePowers.push_back(power);
+		}
 
 		vector<int> toggleSequence = readToggleSequence(m);
 
-		int maxPowerUsed = simulateDeviceToggles(n, devicePowers, toggleSequence);
+		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);
 
 		if(maxPowerUsed>c)
 		{

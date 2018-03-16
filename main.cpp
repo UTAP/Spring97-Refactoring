@@ -13,8 +13,7 @@ int main()
 		{
 			return 0;
 		}
-		//int power[20];
-		//int situation[20];
+		
 		int*power=new int [n];
 		int*situation=new int [n];
 		int number;

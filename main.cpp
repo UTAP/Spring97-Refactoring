@@ -2,6 +2,19 @@
 #include<cstdio>
 #include<vector>
 using namespace std;
+
+vector<int> readToggleSequence(int m)
+{
+	vector<int> toggleSequence;
+	for(int i=0;i<m;i++)
+	{
+		int deviceIndex;
+		cin >> deviceIndex;
+		toggleSequence.push_back(deviceIndex);
+	}
+	return toggleSequence;
+}
+
 int main()
 {
 	int n,m,c;
@@ -23,14 +36,9 @@ int main()
 
 		int usedPower = 0;
 
-		vector<int> toggleSequence;
-		for(int i=0;i<m;i++)
-		{
-			int deviceIndex;
-			cin >> deviceIndex;
-			toggleSequence.push_back(deviceIndex);
+		vector<int> toggleSequence = readToggleSequence(m);
 
-		}
+
 		for(int i=0;i<m;i++)
 		{
 			int deviceIndex = toggleSequence[i];

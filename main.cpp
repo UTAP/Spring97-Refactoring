@@ -29,14 +29,14 @@ int main()
 		for(int i=0;i<n;i++)
 			cin >> devicePowers[i];
 
-		bool* deviceStates=new bool [n];
-		for(int i=0;i<n;i++)
-			deviceStates[i]=false;
-
 		vector<int> toggleSequence = readToggleSequence(m);
 
 		int maxPowerUsed = 0;
 		int usedPower = 0;
+
+		bool* deviceStates=new bool [n];
+		for(int i=0;i<n;i++)
+			deviceStates[i]=false;
 
 		for(int i=0;i<m;i++)
 		{

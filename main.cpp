@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cstdio>
 #include<vector>
 using namespace std;
 
@@ -41,10 +40,15 @@ int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
 
 void printOutput(int sequenceCount, bool fuseWasBlown, int maxPowerUsed)
 {
+	cout << "Sequence " << sequenceCount << "\n";
+
 	if(fuseWasBlown)
-		printf("Sequence %d\nFuse was blown.\n\n",sequenceCount);
+		cout << "Fuse was blown.\n\n";
 	else
-		printf("Sequence %d\nFuse was not blown.\nMaximal power consumption was %d amperes.\n\n",sequenceCount,maxPowerUsed);
+	{
+		cout << "Fuse was not blown.\n";
+		cout << "Maximal power consumption was " << maxPowerUsed << " amperes.\n\n";
+	}
 }
 
 int main()

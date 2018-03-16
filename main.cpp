@@ -3,16 +3,16 @@
 #include<vector>
 using namespace std;
 
-vector<int> readToggleSequence(int m)
+vector<int> readSequence(int m)
 {
-	vector<int> toggleSequence;
-	for(int i=0;i<m;i++)
+	vector<int> sequence;
+	for(int i = 0; i < m; i++)
 	{
-		int deviceIndex;
-		cin >> deviceIndex;
-		toggleSequence.push_back(deviceIndex);
+		int element;
+		cin >> element;
+		sequence.push_back(element);
 	}
-	return toggleSequence;
+	return sequence;
 }
 
 int simulateDeviceToggles(vector<int> devicePowers, vector<int> toggleSequence)
@@ -49,15 +49,9 @@ int main()
 		if((n==0)&&(m==0)&&(c==0))
 			return 0;
 
-		vector<int> devicePowers;
-		for(int i = 0; i < n; i++)
-		{
-			int power;
-			cin >> power;
-			devicePowers.push_back(power);
-		}
+		vector<int> devicePowers = readSequence(n);
 
-		vector<int> toggleSequence = readToggleSequence(m);
+		vector<int> toggleSequence = readSequence(m);
 
 		int maxPowerUsed = simulateDeviceToggles(devicePowers, toggleSequence);
 

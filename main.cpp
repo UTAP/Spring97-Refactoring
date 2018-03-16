@@ -10,21 +10,17 @@ int main()
 	{
 		cin >> n >> m >> c;
 		if((n==0)&&(m==0)&&(c==0))
-		{
 			return 0;
-		}
-		
+
 		int*power=new int [n];
 		int*situation=new int [n];
 		int number;
 		for(i=0;i<n;i++)
-		{
 			situation[i]=0;
-		}
+
 		for(i=0;i<n;i++)
-		{
 			cin >> power[i];
-		}
+
 		for(i=1;i<(m+1);i++)
 		{
 			cin >> number;
@@ -35,9 +31,7 @@ int main()
 					situation[j-1]=1;
 					usedpower=usedpower+power[j-1];
 					if(usedpower>maxofusedpower)
-					{
 						maxofusedpower=usedpower;
-					}
 					break;
 				}
 				if((number==j)&&(situation[j-1]==1))
@@ -45,9 +39,7 @@ int main()
 					situation[j-1]=0;
 					usedpower=usedpower-power[j-1];
 					if(usedpower>maxofusedpower)
-					{
 						maxofusedpower=usedpower;
-					}
 					break;
 				}
 			}

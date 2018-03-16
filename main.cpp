@@ -28,16 +28,15 @@ int main()
 			{
 				deviceStates[deviceIndex-1]=1;
 				usedpower=usedpower+devicePowers[deviceIndex-1];
-				if(usedpower>maxofusedpower)
-					maxofusedpower=usedpower;
+
 			}
 			else if(deviceStates[deviceIndex-1]==1)
 			{
 				deviceStates[deviceIndex-1]=0;
 				usedpower=usedpower-devicePowers[deviceIndex-1];
-				if(usedpower>maxofusedpower)
-					maxofusedpower=usedpower;
 			}
+			if(usedpower>maxofusedpower)
+				maxofusedpower=usedpower;
 		}
 		if(usedpower>c)
 		{
